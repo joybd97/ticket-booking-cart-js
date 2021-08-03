@@ -27,11 +27,13 @@
     </header>
 
     <!--Booking Section-->
-    <main class="main-content container">
+    <main class="main-content container" id="cart-area">
 
         <div class="booking-content">
             <h1>Mega City Bus</h1>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book.</p>
         </div>
 
 
@@ -41,18 +43,18 @@
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">From</label>
-                    <input class="inp-style" type="text" name="" placeholder="Dhaka">
+                        <input class="inp-style" type="text" name="" placeholder="Dhaka">
                 </div>
                 <div class="input-group">
                     <label" for="">From</label>
-                    <input class="inp-style" type="text" name="" placeholder="Chittagone">
+                        <input class="inp-style" type="text" name="" placeholder="Chittagone">
                 </div>
             </div>
 
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                        <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
@@ -61,14 +63,14 @@
             </div>
             <div class="inputs">
                 <div class="input-group f-class">
-                <div>
-                    <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" id="fCount" type="number" value="0">
+                    <div>
+                        <label for="">First Class ($150)</label>
+                        <input class="inp-style inp-width" id="fCount" type="number" value="0">
+                    </div>
+                    <div class="plus-minus-btn">
+                        <p><span id="fPlus"><button>+</button></span> <span id="fMinus"><button>-</button> </span></p>
+                    </div>
                 </div>
-                <div class="plus-minus-btn">
-                    <p><span id="fPlus"><button>+</button></span> <span id="fMinus"><button>-</button> </span></p>
-                </div>
-            </div>
                 <div class="input-group f-class">
                     <div>
                         <label for="">Economy ($100)</label>
@@ -110,108 +112,122 @@
             </div>
             <button class="btn-style" id="book">Book Now</button>
         </div>
+
+        
     </main>
+
+    <div id="congt">
+        <h1>Congratulations!!</h1>
+        <h1>Booking Successful!!</h1>
+    </div>
+
+
 
     <script>
 
-        function item(count){
-            const text=document.getElementById(count).value;
-            var val= parseInt(text);
+        function item(count) {
+            const text = document.getElementById(count).value;
+            var val = parseInt(text);
             return val;
         }
-        
+
         //click on + first class
-        var fPlus=document.getElementById("fPlus");
-        fPlus.addEventListener("click",function(){
-            var fval= item("fCount");
-            fval=fval+1;
-            document.getElementById("fCount").value=fval;
+        var fPlus = document.getElementById("fPlus");
+        fPlus.addEventListener("click", function () {
+            var fval = item("fCount");
+            fval = fval + 1;
+            document.getElementById("fCount").value = fval;
 
-        var eval= item("eCount");        
-        var total=fval*150+eval*100;       
-        document.getElementById("total").innerText=total;
+            var eval = item("eCount");
+            var total = fval * 150 + eval * 100;
+            document.getElementById("total").innerText = total;
 
-        var vat= total*.1
-        document.getElementById("vat").innerText=vat;
+            var vat = total * .1
+            document.getElementById("vat").innerText = vat;
 
-        document.getElementById("sum").innerText=total+vat;
+            document.getElementById("sum").innerText = total + vat;
         })
 
         //click on - first class
-        var fMinus=document.getElementById("fMinus");
-        fMinus.addEventListener("click",function(){
-            var fval= item("fCount");
-            fval=fval-1;
-            if(fval<=0){
-                document.getElementById("fCount").value=0;
+        var fMinus = document.getElementById("fMinus");
+        fMinus.addEventListener("click", function () {
+            var fval = item("fCount");
+            fval = fval - 1;
+            if (fval <= 0) {
+                document.getElementById("fCount").value = 0;
             }
-            else{
-                document.getElementById("fCount").value=fval;
+            else {
+                document.getElementById("fCount").value = fval;
             }
 
-        var eval= item("eCount");       
-        var total=fval*150+eval*100;
-        document.getElementById("total").innerText=total;
+            var eval = item("eCount");
+            var total = fval * 150 + eval * 100;
+            document.getElementById("total").innerText = total;
 
-        var vat= total*.1
-        document.getElementById("vat").innerText=vat;
+            var vat = total * .1
+            document.getElementById("vat").innerText = vat;
 
-        document.getElementById("sum").innerText=total+vat;
+            document.getElementById("sum").innerText = total + vat;
 
         })
 
         //click on + economic class
-        var fPlus=document.getElementById("ePlus");
-        ePlus.addEventListener("click",function(){
-            var eval= item("eCount");
-            eval=eval+1;
-            document.getElementById("eCount").value=eval;
+        var fPlus = document.getElementById("ePlus");
+        ePlus.addEventListener("click", function () {
+            var eval = item("eCount");
+            eval = eval + 1;
+            document.getElementById("eCount").value = eval;
 
-        var fval= item("fCount");        
-        var total=fval*150+eval*100;        
-        document.getElementById("total").innerText=total;
+            var fval = item("fCount");
+            var total = fval * 150 + eval * 100;
+            document.getElementById("total").innerText = total;
 
-        var vat= total*.1
-        document.getElementById("vat").innerText=vat;
+            var vat = total * .1
+            document.getElementById("vat").innerText = vat;
 
-        document.getElementById("sum").innerText=total+vat;
+            document.getElementById("sum").innerText = total + vat;
 
 
-        
+
         })
 
         //click on - economic class
-        var eMinus=document.getElementById("eMinus");
-        eMinus.addEventListener("click",function(){
-            var eval= item("eCount");
-            eval=eval-1;
-            if(eval<=0){
-                document.getElementById("eCount").value=0;
+        var eMinus = document.getElementById("eMinus");
+        eMinus.addEventListener("click", function () {
+            var eval = item("eCount");
+            eval = eval - 1;
+            if (eval <= 0) {
+                document.getElementById("eCount").value = 0;
             }
-            else{
-                document.getElementById("eCount").value=eval;
+            else {
+                document.getElementById("eCount").value = eval;
             }
 
-        var fval= item("fCount");        
-        var total=fval*150+eval*100;       
-        document.getElementById("total").innerText=total;
+            var fval = item("fCount");
+            var total = fval * 150 + eval * 100;
+            document.getElementById("total").innerText = total;
 
-        var vat= total*.1
-        document.getElementById("vat").innerText=vat;
+            var vat = total * .1
+            document.getElementById("vat").innerText = vat;
 
-        document.getElementById("sum").innerText=total+vat;
+            document.getElementById("sum").innerText = total + vat;
 
         })
 
-        
-    
 
-        
-        var book=document.getElementById("book");
-        book.addEventListener("click",function(){
-            var hide=document.getElementById("booking-form");
-           
+
+
+
+        var bookClick = document.getElementById("book");
+        bookClick.addEventListener("click", function () {
+            //var x= document.getElementById("cart-area");
+            var x = document.getElementById("cart-area");
+            x.style.display = "none";
+
+            x = document.getElementById("congt");
+            x.style.display = 'block';
         })
+
 
     </script>
 </body>
