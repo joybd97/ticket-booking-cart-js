@@ -135,3 +135,12 @@ nav ul li a:hover, a.active{
     padding-left: 20px;
    
 }
+#congt{
+    display: none;
+    margin-top: 100px;
+    text-align: center;
+    color: white;
+    background-color:blueviolet;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
