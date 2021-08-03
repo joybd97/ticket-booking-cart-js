@@ -122,3 +122,16 @@ nav ul li a:hover, a.active{
     display: flex;
     justify-content: space-between;
 }
+
+
+.plus-minus-btn button{
+  
+    width: 20px;
+    background-color: lightsalmon;
+    
+}
+
+.plus-minus-btn{
+    padding-left: 20px;
+   
+}

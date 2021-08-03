@@ -63,19 +63,19 @@
                 <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
+                    <input class="inp-style inp-width" id="fCount" type="number" value="0">
                 </div>
                 <div class="plus-minus-btn">
-                    <p><span id="fPlus">+</span> <span id="fMinus">- </span></p>
+                    <p><span id="fPlus"><button>+</button></span> <span id="fMinus"><button>-</button> </span></p>
                 </div>
             </div>
                 <div class="input-group f-class">
                     <div>
                         <label for="">Economy ($100)</label>
-                        <input class="inp-style inp-width" type="number" name="">
+                        <input class="inp-style inp-width" id="eCount" type="number" name="" value="0">
                     </div>
                     <div class="plus-minus-btn">
-                        <p> <span id="ePlus">+</span> <span id="eMinus">- </span> </p>
+                        <p> <span id="ePlus"><button>+</button></span> <span id="eMinus"><button>-</button></span> </p>
                     </div>
                 </div>
 
@@ -86,7 +86,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p>$500</p>
+                        <p id="total">$00</p>
                     </div>
                 </div>
 
@@ -94,8 +94,8 @@
                     <div class="left">
                         <p>Charge 10% VAT</p>
                     </div>
-                    <div class="right">
-                        <p>$50</p>
+                    <div class="right" id="vat">
+                        <p>$0</p>
                     </div>
                 </div>
                 <hr>
@@ -104,19 +104,115 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p>$ <span id="sum">00</span></p>
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button class="btn-style" id="book">Book Now</button>
         </div>
     </main>
 
     <script>
-        const fplus= document.getElementById("fPlus");
-        fplus.addEventListener("click",function(){
-            console.log("clicked +");
+
+        function item(count){
+            const text=document.getElementById(count).value;
+            var val= parseInt(text);
+            return val;
+        }
+        
+        //click on + first class
+        var fPlus=document.getElementById("fPlus");
+        fPlus.addEventListener("click",function(){
+            var fval= item("fCount");
+            fval=fval+1;
+            document.getElementById("fCount").value=fval;
+
+        var eval= item("eCount");        
+        var total=fval*150+eval*100;       
+        document.getElementById("total").innerText=total;
+
+        var vat= total*.1
+        document.getElementById("vat").innerText=vat;
+
+        document.getElementById("sum").innerText=total+vat;
         })
+
+        //click on - first class
+        var fMinus=document.getElementById("fMinus");
+        fMinus.addEventListener("click",function(){
+            var fval= item("fCount");
+            fval=fval-1;
+            if(fval<=0){
+                document.getElementById("fCount").value=0;
+            }
+            else{
+                document.getElementById("fCount").value=fval;
+            }
+
+        var eval= item("eCount");       
+        var total=fval*150+eval*100;
+        document.getElementById("total").innerText=total;
+
+        var vat= total*.1
+        document.getElementById("vat").innerText=vat;
+
+        document.getElementById("sum").innerText=total+vat;
+
+        })
+
+        //click on + economic class
+        var fPlus=document.getElementById("ePlus");
+        ePlus.addEventListener("click",function(){
+            var eval= item("eCount");
+            eval=eval+1;
+            document.getElementById("eCount").value=eval;
+
+        var fval= item("fCount");        
+        var total=fval*150+eval*100;        
+        document.getElementById("total").innerText=total;
+
+        var vat= total*.1
+        document.getElementById("vat").innerText=vat;
+
+        document.getElementById("sum").innerText=total+vat;
+
+
+        
+        })
+
+        //click on - economic class
+        var eMinus=document.getElementById("eMinus");
+        eMinus.addEventListener("click",function(){
+            var eval= item("eCount");
+            eval=eval-1;
+            if(eval<=0){
+                document.getElementById("eCount").value=0;
+            }
+            else{
+                document.getElementById("eCount").value=eval;
+            }
+
+        var fval= item("fCount");        
+        var total=fval*150+eval*100;       
+        document.getElementById("total").innerText=total;
+
+        var vat= total*.1
+        document.getElementById("vat").innerText=vat;
+
+        document.getElementById("sum").innerText=total+vat;
+
+        })
+
+        
+    
+
+        
+        var book=document.getElementById("book");
+        book.addEventListener("click",function(){
+            var hide=document.getElementById("booking-form");
+           
+        })
+
     </script>
 </body>
 
